@@ -2,6 +2,12 @@
 
 A runnable **portfolio MVP** combining deterministic energy analytics with document retrieval and optional local LLM synthesis.
 
+## Project overview
+
+**EnergyOps AI** is an open-source portfolio prototype that combines energy consumption analytics with retrieval-augmented generation (RAG). It helps users explore building electricity and weather measurements through interactive Streamlit dashboards, identify unusually high energy usage using reproducible statistical baselines, and ask natural-language questions grounded in indexed technical documents. A FastAPI backend handles data queries and PDF/text retrieval; optional Ollama integration synthesizes evidence-based responses. The project includes synthetic demonstration data, automated tests, Docker configuration, and an importer for the historical Building Data Genome 2 (BDG2) dataset.
+
+**Typical use cases:** building energy monitoring, historical consumption comparisons, anomaly triage, HVAC documentation lookup, and evidence-backed energy operations reporting. **Limitations:** anomaly detection does not establish root cause; the default retriever is TF-IDF, and LLM synthesis is optional. This is a demonstration system, not a safety-critical or production energy-control platform.
+
 > **Dataset disclaimer:** The bundled electricity readings, weather temperatures and operating procedures are **synthetic demonstrations**, not facility measurements or real safety guidance. Do not use this application to make operational/safety decisions.
 
 
