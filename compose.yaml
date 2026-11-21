@@ -1,0 +1,35 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      ENERGYOPS_DB_PATH: /app/data/energyops.sqlite3
+      ENERGYOPS_AUTO_SEED: "true"
+      ENERGYOPS_USE_OLLAMA: ${ENERGYOPS_USE_OLLAMA:-false}
+      ENERGYOPS_OLLAMA_URL: ${ENERGYOPS_OLLAMA_URL:-http://host.docker.internal:11434}
+      ENERGYOPS_OLLAMA_MODEL: ${ENERGYOPS_OLLAMA_MODEL:-llama3.2}
+    volumes:
+      - energyops_data:/app/data
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    environment:
+      ENERGYOPS_API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  energyops_data:
