@@ -8,7 +8,7 @@ A runnable **portfolio MVP** combining deterministic energy analytics with docum
 
 **Typical use cases:** building energy monitoring, historical consumption comparisons, anomaly triage, HVAC documentation lookup, and evidence-backed energy operations reporting. **Limitations:** anomaly detection does not establish root cause; the default retriever is TF-IDF, and LLM synthesis is optional. This is a demonstration system, not a safety-critical or production energy-control platform.
 
-> **Dataset disclaimer:** The bundled electricity readings, weather temperatures and operating procedures are **synthetic demonstrations**, not facility measurements or real safety guidance. Do not use this application to make operational/safety decisions.
+> **Dataset disclaimer:** The bundled electricity readings, weather temperatures, and operating procedures are **synthetic demonstrations**, not facility measurements or real safety guidance. Do not use this application to make operational/safety decisions.
 
 
 ## Dashboard previews
