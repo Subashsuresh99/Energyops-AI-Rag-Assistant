@@ -4,6 +4,21 @@ A runnable **portfolio MVP** combining deterministic energy analytics with docum
 
 > **Dataset disclaimer:** The bundled electricity readings, weather temperatures and operating procedures are **synthetic demonstrations**, not facility measurements or real safety guidance. Do not use this application to make operational/safety decisions.
 
+
+## Dashboard previews
+
+The following are **illustrative graphics generated from the built-in synthetic demo dataset**, not screenshots of a deployed service.
+
+![EnergyOps AI demonstration dashboard with charts and building comparisons](assets/dashboard-preview.svg)
+
+![Comparison of synthetic high-consumption hours against historical same-hour baselines](assets/anomaly-analysis.svg)
+
+### Dashboard visualizations
+
+The Streamlit interface includes five KPI indicators, a selectable building and time window, hourly electricity trends with marked alerts, daily consumption bars, a six-building portfolio comparison, average hourly and weekday patterns, a daily/hourly usage heatmap, outside-temperature scatterplots, anomaly baseline comparisons, CSV downloads, and a document-grounded AI assistant. The anomaly threshold is adjustable from the sidebar. The selected timeframe is relative to the **newest stored reading** rather than today's date.
+
+**Run the interactive dashboard:** `docker compose up --build` and open [http://localhost:8501](http://localhost:8501), or run the API and Streamlit locally as described below.
+
 ## Features
 
 - **Energy monitoring:** hourly kWh, outside temperatures and building lists through a FastAPI REST service.
